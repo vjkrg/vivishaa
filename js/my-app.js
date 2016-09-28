@@ -1,4 +1,3 @@
-// Initialize your app
 var myApp = new Framework7({
     animateNavBackIcon: true,
     precompileTemplates: true,
@@ -8,10 +7,8 @@ var myApp = new Framework7({
     template7Pages: true
 });
 
-// Export selectors engine
 var $$ = Dom7;
 
-// Add main View
 var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false,
 });

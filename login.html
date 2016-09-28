@@ -83,7 +83,7 @@
 									<p id="pgerror" name="pgerror" style="color:red;font-weight:bold;text-align:center;padding-top:10px;"></p>
 									<div  class="signup_bottom">
 										<p>Don't have an account?</p>
-										<a href='signup.html'>Signup</a>
+										<a id=signup name=signup a href=#>Signup</a>
 									</div>
 								</div>
 								</form>
@@ -94,32 +94,38 @@
 			</div>
 		</div>
     </div>
+
 	<script>
-$("#login").click(function(){
-	$("#pgerror").text('');
-	var email=$("#email").val();
-	var password=$("#password").val();
-	if(email.length <=0){ $("#pgerror").text('Please Enter Email.'); return false; }
-	if(password.length <=0){ $("#pgerror").text('Please Enter Password.'); return false; }
-	$.ajax({ 
-		type: "POST",
-		url: "http://www.app.vivishaa.com/vivishaaapi.php?proc=login&email="+email+"&password="+password,
-		crossDomain: true,
-		cache: false,
-		beforeSend: function(){ $("#login").val('Please Wait...');},
-		success: function(data){
-			if(data=="false"){
-				$("#pgerror").text('Email ID or Password is incorrect.');
-				$("#login").val('Login');
-			}
-			else{
-				$(location).attr('href', 'index.html')
-			}
-		}
+	$("#signup").click(function(){
+		$(location).attr('href', 'signup.html')
 	});
-	
-	return false;
-});
+	</script>
+
+	<script>
+	$("#login").click(function(){
+		$("#pgerror").text('');
+		var email=$("#email").val();
+		var password=$("#password").val();
+		if(email.length <=0){ $("#pgerror").text('Please Enter Email.'); return false; }
+		if(password.length <=0){ $("#pgerror").text('Please Enter Password.'); return false; }
+		$.ajax({ 
+			type: "POST",
+			url: "http://www.app.vivishaa.com/vivishaaapi.php?proc=login&email="+email+"&password="+password,
+			crossDomain: true,
+			cache: false,
+			beforeSend: function(){ $("#login").val('Please Wait...');},
+			success: function(data){
+				if(data=="false"){
+					$("#pgerror").text('Email ID or Password is incorrect.');
+					$("#login").val('Login');
+				}
+				else{
+					$(location).attr('href', 'index.html')
+				}
+			}
+		});
+		return false;
+	});
 </script>
   </body>
 </html>
